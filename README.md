@@ -7,6 +7,7 @@
      - Design Patterns in QC - too ambitious?
      - Low level logical operations - already extensively covered?
      - What is the sweet spot?
+  - Alternative: analyse [Qiskit's](https://qiskit.org/) architetucture
 
 #### Rust / Scala / [OOP language that has typeclasses]
   - Approach commons design problems and implement them
