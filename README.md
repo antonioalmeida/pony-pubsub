@@ -1,5 +1,15 @@
 # feup-asso
 
+## Design Patterns to Consider
+
+| Design Pattern  | Link |
+|-----------------|------|
+|                 |      |
+|                 |      |
+|                 |      |
+|                 |      |
+|                 |      |
+
 ## Possibilities
 
 #### Quantum Computing 
