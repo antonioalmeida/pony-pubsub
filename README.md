@@ -2,13 +2,17 @@
 
 ## Design Patterns to Consider
 
-| Design Pattern  | Link |
-|-----------------|------|
-|                 |      |
-|                 |      |
-|                 |      |
-|                 |      |
-|                 |      |
+| Design Pattern  | Link                                                   |
+|-----------------|--------------------------------------------------------|
+| Singleton       |  https://sourcemaking.com/design_patterns/singleton    |
+| Builder         |  https://sourcemaking.com/design_patterns/builder      |
+| Composite       |  https://sourcemaking.com/design_patterns/composite    |
+| Flyweight       |  https://sourcemaking.com/design_patterns/flyweight    |
+| Command         |  https://sourcemaking.com/design_patterns/command      |
+| Iterator        |  https://sourcemaking.com/design_patterns/iterator     |
+| Null Object     |  https://sourcemaking.com/design_patterns/null_object  |
+| Visitor         |  https://sourcemaking.com/design_patterns/visitor      |
+| ...             |  more to come                                          |
 
 ## Possibilities
 
