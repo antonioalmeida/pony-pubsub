@@ -14,6 +14,14 @@
 | Visitor         |  https://sourcemaking.com/design_patterns/visitor      |
 | ...             |  more to come                                          |
 
+
+### Notes on the Design Patterns
+
+**[Observer](https://en.wikipedia.org/wiki/Actor_model)**: ```For example, an Actor might need to send a message to a recipient Actor from which it later expects to receive a response, but the response will actually be handled by a third Actor component that has been configured to receive and handle the response (for example, a different Actor implementing the Observer pattern). The original Actor could accomplish this by sending a communication that includes the message it wishes to send, along with the address of the third Actor that will handle the response. This third Actor that will handle the response is called the resumption (sometimes also called a continuation or stack frame). When the recipient Actor is ready to send a response, it sends the response message to the resumption Actor address that was included in the original communication.```
+
+
+
+
 ## Possibilities
 
 #### Quantum Computing 
