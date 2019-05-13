@@ -12,10 +12,9 @@ actor Queue
         _messages.push(message)
 
     be pull(consumer: Consumer) => 
-        var message = "empty"
         try 
             if _messages.size() > 0 then
-                message = _messages.pop()?
+                let message = _messages.pop()?
                 consumer.consume_message(message)
             end
         else 

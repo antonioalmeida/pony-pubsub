@@ -7,7 +7,7 @@ actor Publisher
         _message = message
         _out = out
 
-    be publish_message(queue : Queue) =>
+    be publish_message(queue: Queue) =>
         let message = _message + " " + _count.string()
         queue.push(message)
         _out.print("Published message - " + message)
