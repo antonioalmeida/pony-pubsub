@@ -8,7 +8,13 @@
 Install pony compiler `ponyc`
 
 #### Compile
-Inside the source directory run `ponyc -b <bin_name>` to compile and link the program
+```shell
+$ ponyc -d src -o out -b main # compiles directory 'src' to 'out/main'
+```
 
 #### Run
-Pony creates an executable with the name *bin_name*. To run execute `./<bin_name>` inside the source directoy.
+
+Assuming the previous compilation command was executed:
+```shell
+$ ./out/main
+```
