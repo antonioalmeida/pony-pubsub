@@ -15,7 +15,7 @@ actor Queue
         try 
             if _messages.size() > 0 then
                 let message = _messages.pop()?
-                consumer.consume_message(message)
+                consumer.on_message(message)
             end
         else 
             _out.print("error pulling")

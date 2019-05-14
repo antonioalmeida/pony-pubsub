@@ -14,9 +14,8 @@ new create(env: Env) =>
     
     p1.publish_message(queue)
 
-    consumer.ask_message(queue)
-    consumer.ask_message(queue)
-    consumer.ask_message(queue)
-
+    consumer.consume_message(queue)
+    consumer.consume_message(queue)
+    consumer.consume_message(queue)
 
     env.out.print("**Main** Finished.")
