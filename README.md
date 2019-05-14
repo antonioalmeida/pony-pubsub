@@ -22,6 +22,10 @@
 **[Option Pattern](https://www.codeproject.com/Articles/17607/The-Option-Pattern)**: ![option_pattern](pictures/option_pattern.PNG "Pony Option Pattern")
 
 
+### Notes on Pony
+![capabilities](pictures/capabilities_pony.PNG "Pony Capabilities Table")
+
+
 ## Possibilities
 
 #### Quantum Computing 
