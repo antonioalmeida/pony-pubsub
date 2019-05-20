@@ -14,7 +14,7 @@ actor Queue
     be pull(consumer: Consumer) => 
         try 
             if _messages.size() > 0 then
-                let message = _messages.pop()?
+                let message = _messages.shift()?
                 consumer.on_message(message)
             end
         else 
