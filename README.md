@@ -1,5 +1,10 @@
 # feup-asso
 
+## Scenarios
+
+- [Scenario 1](https://github.com/antonioalmeida/feup-asso/tree/scenario1)
+- [Scenario 2](https://github.com/antonioalmeida/feup-asso/tree/scenario2)
+
 ## Design Patterns to Consider
 
 | Design Pattern  | Link                                                   |
