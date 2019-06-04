@@ -8,7 +8,10 @@ actor Publisher
         _out = out
 
     be publish_message(queue: Queue) =>
+        queue.can_produce(this)
+
+    be push_message(queue: Queue) =>
+        _count = _count + 1
         let message = _message + " " + _count.string()
         queue.push(message)
         _out.print("Published message - " + message)
-        _count = _count + 1

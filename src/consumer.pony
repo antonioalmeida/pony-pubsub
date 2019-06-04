@@ -10,7 +10,7 @@ actor Consumer
 
     "'ask' queue for a message"  
     be consume_message(queue: Queue) =>
-        queue.pull(this)
+        queue.can_consume(this)
 
     "actually receive the message - invoked by the queue" 
     be on_message(message: String) =>
