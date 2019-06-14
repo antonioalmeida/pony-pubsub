@@ -62,3 +62,16 @@ Improvements on Scenario 2
 * Make better use of the typing system, namely [Type Aliases](https://tutorial.ponylang.io/types/type-aliases.html), to encapsulate and improve semantics on messages;
 * Not having a `null` value was weird, we now handle that better. [This](https://patterns.ponylang.io/creation/supply-chain.html) helped
 * CI through [CircleCI](https://circleci.com/) with containerized build ~~and test~~ jobs
+
+
+
+### v0.0.4 (not yet tho)
+
+Started Scenario 3
+
+![scenario-3](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-3.png)
+
+* Unbounded queue and publishes asap;
+* *Ventilator* (or Subscription Manager) knows about the subscribers:
+    * [Observer](https://en.wikipedia.org/wiki/Observer_pattern) used to push to subscribers (*Explicit* subscription);
+    * Different specializations of *ventilators* ([Fanout](https://en.wikipedia.org/wiki/Fan-out_(software)), Round-robin...).
