@@ -1,9 +1,20 @@
 # feup-asso
 
-## Scenarios
+## Scenarios to Implement
 
 - [Scenario 1](https://github.com/antonioalmeida/feup-asso/tree/scenario1)
 - [Scenario 2](https://github.com/antonioalmeida/feup-asso/tree/scenario2)
+- [Scenario 3](https://github.com/antonioalmeida/feup-asso/tree/scenario3)
+- [Scenario 4](https://github.com/antonioalmeida/feup-asso/tree/scenario4)
+
+
+
+
+
+
+
+
+
 
 ## Design Patterns to Consider
 
