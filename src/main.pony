@@ -17,5 +17,6 @@ new create(env: Env) =>
     consumer.consume_message(queue)
     consumer.consume_message(queue)
     consumer.consume_message(queue)
+    consumer.consume_message(queue)
 
     env.out.print("**Main** Finished.")

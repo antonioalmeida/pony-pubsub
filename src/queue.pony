@@ -47,8 +47,7 @@ actor Queue
         try
             if _messages.size() > 0 then
                 message = _messages.shift()?
-            else
-                message = "no message to consume"
             end
         end
         message
+

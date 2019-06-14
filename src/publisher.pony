@@ -13,4 +13,4 @@ actor Publisher
     be push_message(queue: Queue) =>
         _count = _count + 1
         queue.push(_message)
-        _out.print("Published message - " + _message.string() + " " + _count.string())
+        _out.print("Published message - " + _message.string())
