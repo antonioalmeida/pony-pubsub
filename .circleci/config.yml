@@ -5,7 +5,7 @@ jobs:
       - image: ponylang/ponyc:release
     steps:
       - checkout
-      - run: make -d src -o out -b main
+      - run: ponyc -d src -o out -b main
 workflows:
   version: 2
   build_and_test:
