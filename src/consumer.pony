@@ -19,3 +19,7 @@ actor Consumer
         _messages.push(message)
         _out.print("c" + _id.string() +  ": consumed message " + message.string())
 
+
+    be subscribe_ventilator(ventilator: Ventilator) =>
+        ventilator.add_subscriber(this)
+

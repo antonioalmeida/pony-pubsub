@@ -36,15 +36,12 @@ new create(env: Env) =>
     
     p1.publish_message_v(v1)
 
-    /* 
+     
     consumer1.subscribe_ventilator(v1)
     consumer3.subscribe_ventilator(v1)
+    
+    v1.consume_message()
+    v1.consume_message()
 
-    consumer1.consume_message()
-    consumer1.consume_message()
-    consumer2.consume_message()
-    consumer3.consume_message()
-
-    */
 
     env.out.print("**Main** Finished.")
