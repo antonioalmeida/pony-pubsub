@@ -32,18 +32,16 @@ actor Queue
     be can_consume(consumer: Consumer) => 
         let message = pull_sync()
 
-        if message.string() == "no message to consume" then
-            _consume_requests.push(consumer)
-        else
-            consumer.on_message(message)
+        match message
+        | let m: None => _consume_requests.push(consumer)
+        | let m: Message => consumer.on_message(m)
         end
 
     fun ref push_sync(message: Message) =>
         _messages.push(message)
 
-    fun ref pull_sync(): Message =>
-        var message: Message 
-        message = "no message to consume"
+    fun ref pull_sync(): (Message | None) =>
+        var message: (Message | None) = None
         try
             if _messages.size() > 0 then
                 message = _messages.shift()?
