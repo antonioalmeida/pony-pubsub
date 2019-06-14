@@ -1,4 +1,6 @@
-# feup-asso
+# Implementing Publish-Subscriber scenarios using an actor-model programming language.
+
+We implemented different scenarios (explicited below) using **Pony**. From Pony's [website](https://www.ponylang.io/): *"Pony is an open-source, object-oriented, actor-model, capabilities-secure, high-performance programming language."*
 
 ## Scenarios to Implement
 
