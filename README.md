@@ -9,14 +9,23 @@ Install pony compiler `ponyc`
 
 #### Compile
 ```shell
-$ ponyc -d src -o out -b main # compiles directory 'src' to 'out/main'
+# compile the package
+$ make build/asso 
+
+# compile tests
+$ make build/test 
 ```
 
 #### Run
 
-Assuming the previous compilation command was executed:
+__Note:__ both these commands will compile the source if they're not built.
 ```shell
-$ ./out/main
+
+# run the package's Main
+$ make run
+
+# run tests
+$ make test
 ```
 
 ### v0.0.1
