@@ -1,17 +1,17 @@
 actor Queue
     let _capacity: USize
-    var _messages: Array[String]
+    var _messages: Array[Message]
     let _out: OutStream
 
     let _consume_requests: Array[Consumer]
 
     new create(capacity: USize, out: OutStream) =>
         _capacity = capacity
-        _messages = Array[String](_capacity)
+        _messages = Array[Message](_capacity)
         _out = out
         _consume_requests = Array[Consumer](_capacity)
 
-    be push(message: String) =>
+    be push(message: Message) =>
         push_sync(message)
         try
             if _consume_requests.size() > 0 then
@@ -32,20 +32,23 @@ actor Queue
     be can_consume(consumer: Consumer) => 
         let message = pull_sync()
 
-        if message == "no message to consume" then
+        if message.string() == "no message to consume" then
             _consume_requests.push(consumer)
         else
             consumer.on_message(message)
         end
 
-    fun ref push_sync(message: String) =>
+    fun ref push_sync(message: Message) =>
         _messages.push(message)
 
-    fun ref pull_sync(): String =>
-        var message = "no message to consume"
+    fun ref pull_sync(): Message =>
+        var message: Message 
+        message = "no message to consume"
         try
             if _messages.size() > 0 then
                 message = _messages.shift()?
+            else
+                message = "no message to consume"
             end
         end
         message

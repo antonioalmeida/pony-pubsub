@@ -1,9 +1,9 @@
 actor Publisher
-    let _message : String
+    let _message : Message
     var _count : U32 = 0
     let _out: OutStream
 
-    new create(message: String, out: OutStream) =>
+    new create(message: Message, out: OutStream) =>
         _message = message
         _out = out
 
@@ -12,6 +12,5 @@ actor Publisher
 
     be push_message(queue: Queue) =>
         _count = _count + 1
-        let message = _message + " " + _count.string()
-        queue.push(message)
-        _out.print("Published message - " + message)
+        queue.push(_message)
+        _out.print("Published message - " + _message.string() + " " + _count.string())
