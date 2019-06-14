@@ -61,3 +61,4 @@ Improvements on Scenario 2
 #### Improvements:
 * Make better use of the typing system, namely [Type Aliases](https://tutorial.ponylang.io/types/type-aliases.html), to encapsulate and improve semantics on messages;
 * Not having a `null` value was weird, we now handle that better. [This](https://patterns.ponylang.io/creation/supply-chain.html) helped
+* CI through [CircleCI](https://circleci.com/) with containerized build ~~and test~~ jobs
