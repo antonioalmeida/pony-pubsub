@@ -69,6 +69,10 @@ Improvements on Scenario 2
 
 Started Scenario 3
 
+Current problems:
+* consumers not consuming
+* delivery logic by the ventilator not correct (each message in queue should be distributed to all subscribers)
+
 ![scenario-3](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-3.png)
 
 * Unbounded queue and publishes asap;
