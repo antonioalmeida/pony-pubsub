@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ponylang/ponyc:release
+    steps:
+      - checkout
+      - run: ponyc -d src -o out -b main
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      # - test
