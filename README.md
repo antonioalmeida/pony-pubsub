@@ -54,9 +54,10 @@ First attempt at Scenario 2
 * Potentially *loses* messages if they are consumed asap (?). *Not sure if this is true*
 * Potentially *duplicates* messages if they are consumed only after subscriber finishes work (?). *Not sure if this is true*
 
-#### v0.0.3
+### v0.0.3
 
 Improvements on Scenario 2
-##### Improvements:
-* Make better use of the typing system, namely [type aliases](https://tutorial.ponylang.io/types/type-aliases.html) to encapsulate and improve semantics on messages
+
+#### Improvements:
+* Make better use of the typing system, namely [Type Aliases](https://tutorial.ponylang.io/types/type-aliases.html), to encapsulate and improve semantics on messages;
 * Not having a `null` value was weird, we now handle that better. [This](https://patterns.ponylang.io/creation/supply-chain.html) helped
