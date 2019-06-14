@@ -19,7 +19,7 @@ Assuming the previous compilation command was executed:
 $ ./out/main
 ```
 
-#### v0.0.1
+### v0.0.1
 
 First attempt at Scenario 1 
 ![scenario-1](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-1.png)
@@ -32,7 +32,7 @@ First attempt at Scenario 1
 - EVERYTHING is asynchronous - the change in mindset still hasn't kicked in, and the code reflects that
 - Message ordering when publishing and consuming is not guaranteed - need to change the push/pull pattern and possibly look into [reference capabilities](https://tutorial.ponylang.io/reference-capabilities.html)
 
-#### v0.0.2
+### v0.0.2
 
 First attempt at Scenario 2
 ![scenario-2](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-2.png)
@@ -53,3 +53,10 @@ First attempt at Scenario 2
 * No guarantees on ~~delivery-order, or~~ load-balancing;
 * Potentially *loses* messages if they are consumed asap (?). *Not sure if this is true*
 * Potentially *duplicates* messages if they are consumed only after subscriber finishes work (?). *Not sure if this is true*
+
+#### v0.0.3
+
+Improvements on Scenario 2
+##### Improvements:
+* Make better use of the typing system, namely [type aliases](https://tutorial.ponylang.io/types/type-aliases.html) to encapsulate and improve semantics on messages
+* Not having a `null` value was weird, we now handle that better. [This](https://patterns.ponylang.io/creation/supply-chain.html) helped
