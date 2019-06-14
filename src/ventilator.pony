@@ -1,12 +1,11 @@
 actor Ventilator
     let _id: USize
-    let _message : Message
-    var _count : U32 = 0
+    let _queue : Queue
     let _out: OutStream
 
-    new create(id: USize, message: Message, out: OutStream) =>
+    new create(id: USize, queue: Queue, out: OutStream) =>
         _id = id
-        _message = message
+        _queue = queue
         _out = out
 
     be publish_message(queue: Queue) =>
@@ -14,3 +13,7 @@ actor Ventilator
 
     be push_message(queue: Queue) =>
         _out.print("TODO")
+
+    be can_produce(publisher: Publisher) =>
+        _queue.can_produce(publisher)
+        

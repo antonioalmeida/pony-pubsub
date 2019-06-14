@@ -12,6 +12,9 @@ actor Publisher
     be publish_message(queue: Queue) =>
         queue.can_produce(this)
 
+    be publish_message_v(ventilator: Ventilator) =>
+        ventilator.can_produce(this)
+
     be push_message(queue: Queue) =>
         _count = _count + 1
         queue.push(_message)
