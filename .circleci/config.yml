@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ponylang/ponyc:release
+    steps:
+      - checkout
+      - run: make build/asso
+      - run: make build/test
+  test:
+    docker:
+      - image: ponylang/ponyc:release
+    steps:
+      - checkout
+      - run: make test
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
