@@ -1,4 +1,6 @@
-actor Publisher
+use collections = "collections"
+
+actor Publisher 
     let _id: USize
     let _message : Message
     var _count : U32 = 0
@@ -15,7 +17,13 @@ actor Publisher
     be publish_message_v(ventilator: Ventilator) =>
         ventilator.can_produce(this)
 
+    be publish_message_b(broker: Broker) =>
+        broker.can_produce(this)
+
     be push_message(queue: Queue) =>
         _count = _count + 1
         queue.push(_message)
         _out.print("p" + _id.string() +  ": published message " + _message.string())
+
+    fun get_id(): USize =>
+        _id
