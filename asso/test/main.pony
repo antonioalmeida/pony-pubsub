@@ -1,4 +1,5 @@
 use "ponytest"
+use "promises"
 use ".."
 
 actor Main is TestList
@@ -11,6 +12,7 @@ actor Main is TestList
   fun tag tests(test: PonyTest) =>
     test(_TestAdd)
     test(_TestSub)
+    test(_SinglePubSub)
 
 class iso _TestAdd is UnitTest
   fun name(): String => "addition"
@@ -28,11 +30,9 @@ class iso _SinglePubSub is UnitTest
     fun name(): String => "single publish/consume"
 
     fun apply(h: TestHelper) =>
-        let p = Publisher("ola", h.env.out)
-        let queue = Queue(1, h.env.out)
-        let c = Consumer(h.env.out)
+        let pu = Publisher(1, "ola", h.env.out)
+        let queue = Queue(2, h.env.out)
+        let c = Consumer(1, h.env.out)
 
-        p.publish_message(queue)
+        pu.publish_message(queue)
         c.consume_message(queue)
-
-
