@@ -1,6 +1,6 @@
-# feup-asso
+## feup-asso
 
-## Pony
+----
 
 ### Instructions
 
@@ -28,7 +28,11 @@ $ make run
 $ make test
 ```
 
-### v0.0.1
+----
+
+## A sort of Changelog
+
+### v0.0.0.1
 
 First attempt at Scenario 1 
 ![scenario-1](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-1.png)
@@ -41,7 +45,7 @@ First attempt at Scenario 1
 - EVERYTHING is asynchronous - the change in mindset still hasn't kicked in, and the code reflects that
 - Message ordering when publishing and consuming is not guaranteed - need to change the push/pull pattern and possibly look into [reference capabilities](https://tutorial.ponylang.io/reference-capabilities.html)
 
-### v0.0.2
+### v0.0.1.0
 
 First attempt at Scenario 2
 ![scenario-2](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-2.png)
@@ -63,7 +67,7 @@ First attempt at Scenario 2
 * Potentially *loses* messages if they are consumed asap (?). *Not sure if this is true*
 * Potentially *duplicates* messages if they are consumed only after subscriber finishes work (?). *Not sure if this is true*
 
-### v0.0.3
+### v0.0.2.0
 
 Improvements on Scenario 2
 
@@ -74,13 +78,9 @@ Improvements on Scenario 2
 
 
 
-### v0.0.4 (not yet tho)
+### v0.1.0.0
 
 Started Scenario 3
-
-Current problems:
-* consumers not consuming
-* delivery logic by the ventilator not correct (each message in queue should be distributed to all subscribers)
 
 ![scenario-3](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-3.png)
 
