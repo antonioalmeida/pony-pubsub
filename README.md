@@ -152,7 +152,7 @@ First attempt at Scenario 2
 
 ### v0.0.3
 
-Improvements on Scenario 2
+Improvements on Scenario 2.
 
 #### Improvements:
 * Make better use of the typing system, namely [Type Aliases](https://tutorial.ponylang.io/types/type-aliases.html), to encapsulate and improve semantics on messages;
@@ -163,17 +163,20 @@ Improvements on Scenario 2
 
 ### v0.0.4 (WIP)
 
-Started Scenario 3
+Started Scenario 3.
 
-Current problems:
+### Checklist (part of)
+
+- [x] Explicit subscription
+- [ ] Implement multiple subscription methods (_Strategy_ pattern)
+- [ ] Have the ventilator be notified by the queue, instead of having to call an explicit `consume` behaviour
+
+### Current problems:
 * Consumers ~~not consuming~~ (FIXED)?
 * Delivery logic by the ventilator not correct (each message in queue should be distributed to all subscribers)
+
+### Notes
 * Common interface between direct consumers (scenario2) and ventilator. Is this something we want to keep?
-
-Next Steps:
-
-- [] Implement multiple subscription methods (_Strategy_ pattern)
-- [] Make Ventilator "subscribe" to the queue, instead of having to call an explicit `consume` behaviour
 
 ![scenario-3](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-3.png)
 
