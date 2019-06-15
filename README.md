@@ -87,15 +87,12 @@ We implemented different scenarios (explicited below) using **Pony**. From Pony'
 ### Notes on Pony
 ![capabilities](assets/capabilities_pony.PNG "Pony Capabilities Table")
 
+## Development 
 
-## Pony
-
-### Instructions
-
-#### Setup
+### Setup
 Install pony compiler `ponyc`
 
-#### Compile
+### Compile
 ```shell
 # compile the package
 $ make build/asso 
@@ -104,7 +101,7 @@ $ make build/asso
 $ make build/test 
 ```
 
-#### Run
+### Run
 
 __Note:__ both these commands will compile the source if they're not built.
 ```shell
@@ -115,6 +112,8 @@ $ make run
 # run tests
 $ make test
 ```
+
+## Iterations 
 
 ### v0.0.1
 
@@ -162,13 +161,19 @@ Improvements on Scenario 2
 
 
 
-### v0.0.4 (not yet tho)
+### v0.0.4 (WIP)
 
 Started Scenario 3
 
 Current problems:
-* consumers not consuming
-* delivery logic by the ventilator not correct (each message in queue should be distributed to all subscribers)
+* Consumers ~~not consuming~~ (FIXED)?
+* Delivery logic by the ventilator not correct (each message in queue should be distributed to all subscribers)
+* Common interface between direct consumers (scenario2) and ventilator. Is this something we want to keep?
+
+Next Steps:
+
+- [] Implement multiple subscription methods (_Strategy_ pattern)
+- [] Make Ventilator "subscribe" to the queue, instead of having to call an explicit `consume` behaviour
 
 ![scenario-3](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-3.png)
 
