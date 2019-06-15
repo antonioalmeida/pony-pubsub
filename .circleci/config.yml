@@ -13,7 +13,6 @@ jobs:
     steps:
       - checkout
       - run: make test
-      - run: ./build/test
 workflows:
   version: 2
   build_and_test:
