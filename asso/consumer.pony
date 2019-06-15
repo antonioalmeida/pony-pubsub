@@ -1,3 +1,5 @@
+use "promises"
+
 actor Consumer
     let _messages: Array[Message]
     let _capacity: USize
@@ -17,3 +19,5 @@ actor Consumer
         _messages.push(message)
         _out.print("Consumed message " + message.string())
 
+    be get_number_messages(p: Promise[USize]) =>
+        p(_messages.size())
