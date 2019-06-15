@@ -23,6 +23,11 @@ actor Ventilator
         _subscribers.push(consumer)
 
     be consume_message() =>
+        _queue.can_consume(this)
+    
+    be on_message(m: Message) =>
         for sub in _subscribers.values() do
-            sub.consume_message(_queue)
+            sub.on_message(m)
         end
+    
+

@@ -1,15 +1,17 @@
+type GenericConsumer is (Consumer | Ventilator)
+
 actor Queue
     let _capacity: USize
     var _messages: Array[Message]
     let _out: OutStream
 
-    let _consume_requests: Array[Consumer]
+    let _consume_requests: Array[GenericConsumer]
 
     new create(capacity: USize, out: OutStream) =>
         _capacity = capacity
         _messages = Array[Message](_capacity)
         _out = out
-        _consume_requests = Array[Consumer](_capacity)
+        _consume_requests = Array[GenericConsumer](_capacity)
 
     be push(message: Message) =>
         push_sync(message)
@@ -29,7 +31,7 @@ actor Queue
             _out.print("queue full")
         end
 
-    be can_consume(consumer: Consumer) => 
+    be can_consume(consumer: GenericConsumer) => 
         let message = pull_sync()
 
         match message
