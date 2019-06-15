@@ -22,7 +22,7 @@ actor Queue
         end
 
     be can_produce(publisher: Publisher) =>
-        if (_messages.size() + 1) < _capacity then
+        if _messages.size()  < _capacity then
             publisher.push_message(this)
         else 
             // add to waiting array?
