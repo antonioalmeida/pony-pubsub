@@ -105,6 +105,6 @@ Started Scenario 4 from Scenario 3
     - [x] Broker moves messages around (between queues);
     - [ ] Queues may be persistent.
 - [x] No implicit connections between subscribers and producers:
-    [x] *Explicit* subscription;
-    [x] Identification mechanism is needed (keys, ~~topics, ...~~);
-    [x] Study the [Registry](https://martinfowler.com/eaaCatalog/registry.html) ~~and (if you are feeling adventurous) the [Service Locator](https://en.wikipedia.org/wiki/Service_locator_pattern)~~ patterns.
+    - [x] *Explicit* subscription;
+    - [x] Identification mechanism is needed (keys, ~~topics, ...~~);
+    - [x] Study the [Registry](https://martinfowler.com/eaaCatalog/registry.html) ~~and (if you are feeling adventurous) the [Service Locator](https://en.wikipedia.org/wiki/Service_locator_pattern)~~ patterns.
