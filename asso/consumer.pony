@@ -1,5 +1,3 @@
-use "promises"
-
 actor Consumer
     let _id: USize
     let _messages: Array[Message]
@@ -24,5 +22,5 @@ actor Consumer
     be subscribe_ventilator(ventilator: Ventilator) =>
         ventilator.add_subscriber(this)
 
-    be get_number_messages(p: Promise[USize]) =>
-        p(_messages.size())
+    be report_messages(mc: MessageCounter) =>
+        mc.on_consumer_report(_messages.size())

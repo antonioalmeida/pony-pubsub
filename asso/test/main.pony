@@ -1,5 +1,4 @@
 use "ponytest"
-use "promises"
 use "time"
 use ".."
 
@@ -12,13 +11,14 @@ actor Main is TestList
 
   fun tag tests(test: PonyTest) =>
     test(_SinglePubSub)
+    test(_SinglePubMultipleSub)
     test(_Ventilator)
 
 class iso _SinglePubSub is UnitTest
-    fun name(): String => "single publish/consume"
+    fun name(): String => "Single publisher / Single consumer"
 
     fun apply(h: TestHelper) =>
-      h.long_test(5_000_000_000)
+      h.long_test(1_000_000_000)
 
       let p = Publisher(1, "Hello World", h.env.out)
       let queue = Queue(5, h.env.out)
@@ -31,34 +31,38 @@ class iso _SinglePubSub is UnitTest
       c.consume_message(queue)
 
       let timers = Timers
-      let timer = Timer(MessageChecker(h, c), 500_000_000, 0)
+      let timer = Timer(MessageChecker(h, [c], 2), 100_000_000, 0)
       timers(consume timer)
 
 
-class MessageChecker is TimerNotify
-  let _h: TestHelper
-  let _c: Consumer
-
-  new iso create(h: TestHelper, c: Consumer) =>
-    _h = h
-    _c = c
-
-  fun ref apply(timer: Timer, count: U64): Bool =>
-    let promise = Promise[USize]
-    promise.next[None]({(n: USize val) =>
-      _h.env.out.print("Messages consumed: " + n.string())
-      _h.assert_eq[USize](2, 2)
-      _h.complete(true)
-    })
-
-    _c.get_number_messages(promise)
-    true
-
-class iso _Ventilator is UnitTest
-    fun name(): String => "ventilator test"
+class iso _SinglePubMultipleSub is UnitTest
+    fun name(): String => "Single publisher / Multiple consumers"
 
     fun apply(h: TestHelper) =>
-          let p1 = Publisher(1, "ola", h.env.out)
+      h.long_test(1_000_000_000)
+
+      let p = Publisher(1, "Hello World", h.env.out)
+      let queue = Queue(5, h.env.out)
+      let c1 = Consumer(1, h.env.out)
+      let c2 = Consumer(2, h.env.out)
+
+      p.publish_message(queue)
+      p.publish_message(queue)
+      p.publish_message(queue)
+      c1.consume_message(queue)
+      c2.consume_message(queue)
+      c2.consume_message(queue)
+
+      let timers = Timers
+      let timer = Timer(MessageChecker(h, [c1; c2], 3), 100_000_000, 0)
+      timers(consume timer)
+
+
+class iso _Ventilator is UnitTest
+    fun name(): String => "Ventilator"
+
+    fun apply(h: TestHelper) =>
+          let p1 = Publisher(1, "Hello World", h.env.out)
           let queue = Queue(10, h.env.out)
           let consumer1 = Consumer(1, h.env.out)
           let consumer2 = Consumer(2, h.env.out)
