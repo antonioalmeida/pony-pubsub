@@ -1,7 +1,7 @@
 use collections = "collections"
 
-actor Publisher 
-    let _id: USize
+actor Publisher  
+    let _id: USize 
     let _message : Message
     var _count : U32 = 0
     let _out: OutStream
@@ -18,12 +18,14 @@ actor Publisher
         ventilator.can_produce(this)
 
     be publish_message_b(broker: Broker) =>
-        broker.can_produce(this)
+        broker.can_produce(_id, this)
 
     be push_message(queue: Queue) =>
         _count = _count + 1
         queue.push(_message)
         _out.print("p" + _id.string() +  ": published message " + _message.string())
 
-    fun get_id(): USize =>
+    fun val get_id(): USize =>
         _id
+
+    fun hash(): USize => _id

@@ -3,8 +3,8 @@ new create(env: Env) =>
     
     let queue = Queue(10, env.out)
 
-    let p1 = Publisher(1, "ola", env.out)
-    let p2 = Publisher(2, "hello", env.out)
+    let p1 = Publisher(1, "ola", env.out) 
+    let p2 = Publisher(2, "hello", env.out) 
 
     let consumer1 = Consumer(1, env.out)
     let consumer2 = Consumer(2, env.out)

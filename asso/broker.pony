@@ -7,17 +7,19 @@ actor Broker
     let _publishers: collections.Map[USize, Publisher] = _publishers.create()
     let _queues: collections.Map[USize, Queue] = _queues.create()
     
-
     new create(id: USize, queue: Queue, out: OutStream) =>
         _id = id
         _out = out
-
     
-    be can_produce(publisher: Publisher) =>
-        _queues.insert_if_absent(publisher.get_id(), Queue(10, _out))
-        match _queues.get_or_else(publisher.get_id(), None)
-        | let q: None => _out.print("There was an error in Broker.")
-        | let q: Queue => q.can_produce(publisher)
+    be can_produce(id: USize, publisher: Publisher) =>
+        try
+        _queues.insert_if_absent(id, Queue(10, _out))?
+        end
+        
+        try
+            _queues(id)?.can_produce(publisher)
+        else
+            _out.print("There was an error in Broker.")
         end
 
     /*
