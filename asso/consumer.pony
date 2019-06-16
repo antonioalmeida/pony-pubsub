@@ -17,3 +17,5 @@ actor Consumer
         _messages.push(message)
         _out.print("Consumed message " + message.string())
 
+    be report_messages(mc: MessageCounter) =>
+        mc.on_consumer_report(_messages.size())

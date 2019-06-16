@@ -1,1 +1,3 @@
-out
+ponyc
+packages
+build
