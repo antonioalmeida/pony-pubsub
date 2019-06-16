@@ -36,3 +36,8 @@ $ make test
 
 First attempt at Scenario 1 
 ![scenario-1](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-1.png)
+
+
+#### v0.0.0.2
+
+The file _generators.pony_ clearly needs refactoring but for now the production/consumption of messages is automated using [Timers](https://stdlib.ponylang.io/time-Timer/)
