@@ -96,13 +96,15 @@ Started Scenario 4 from Scenario 3
 
 ![scenario-4](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-4.png)
 
-* Multiple publishers, multiple subscribers;
-* Both have specialized queues:
-    * Inbound and Outbound;
-    * Broker manages queue binding;
-    * Broker moves messages around (between queues);
-    * Queues may be persistent;
-* No implicit connections between subscribers and producers:
-    * *Explicit* subscription;
-    * Identification mechanism is needed (keys, topics, ...);
-    * Study the [Registry](https://martinfowler.com/eaaCatalog/registry.html) and (if you are feeling adventurous) the [Service Locator](https://en.wikipedia.org/wiki/Service_locator_pattern) patterns.
+#### Checklist
+
+- [x] Multiple publishers, multiple subscribers;
+- [ ] Both have specialized queues:
+    - [x] ~~Inbound and~~ Outbound;
+    - [x] Broker manages queue binding;
+    - [x] Broker moves messages around (between queues);
+    - [ ] Queues may be persistent.
+- [x] No implicit connections between subscribers and producers:
+    - [x] *Explicit* subscription;
+    - [x] Identification mechanism is needed (keys, ~~topics, ...~~);
+    - [x] Study the [Registry](https://martinfowler.com/eaaCatalog/registry.html) ~~and (if you are feeling adventurous) the [Service Locator](https://en.wikipedia.org/wiki/Service_locator_pattern)~~ patterns.
