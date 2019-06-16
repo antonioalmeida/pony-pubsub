@@ -16,6 +16,7 @@ actor Queue
 
     be push(message: Message) =>
         push_sync(message)
+        /*
         try
             if _consume_requests.size() > 0 then
                 let msg = _messages.shift()?
@@ -23,6 +24,7 @@ actor Queue
                 consumer.on_message(msg)
             end
         end
+        */
 
     be can_produce(publisher: GenericPublisher) =>
         if _messages.size() < _capacity then

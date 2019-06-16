@@ -8,9 +8,6 @@ actor Ventilator
 
     be push_message(queue: Queue) =>
         queue.push(_message)
-
-
-
-
+    
    
 

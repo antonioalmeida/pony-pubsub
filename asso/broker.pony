@@ -21,7 +21,7 @@ actor Broker
             for consumer in consumers.values() do
                 _consumer_queues.insert_if_absent(consumer, Queue(_out))?
                 let queue = _consumer_queues(consumer)?
-                queue.can_produce(ventilator)
+                queue.push(message)
                 queue.can_consume(consumer)
             end
         else
