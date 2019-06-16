@@ -22,3 +22,5 @@ actor Consumer
     be subscribe_ventilator(ventilator: Ventilator) =>
         ventilator.add_subscriber(this)
 
+    be report_messages(mc: MessageCounter) =>
+        mc.on_consumer_report(_messages.size())
