@@ -17,8 +17,5 @@ actor Consumer
     "actually receive the message - invoked by the queue" 
     be on_message(message: Message) =>
         _messages.push(message)
-        _out.print("c" + _id.string() +  ": consumed message " + message.string())
-
-    be subscribe_ventilator(ventilator: Ventilator) =>
-        ventilator.add_subscriber(this)
+        _out.print("> c" + _id.string() +  ": consumed message " + message.string())
 

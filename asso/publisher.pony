@@ -13,11 +13,8 @@ actor Publisher
     be publish_message(queue: Queue) =>
         queue.can_produce(this)
 
-    be publish_message_v(ventilator: Ventilator) =>
-        ventilator.can_produce(this)
-
     be publish_message_b(broker: Broker) =>
-        broker.can_produce(this)
+        broker.can_produce(this, _message)
         _out.print("p" + _id.string() +  ": publishing message " + _message.string())
 
     be push_message(queue: Queue) =>

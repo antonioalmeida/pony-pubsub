@@ -23,6 +23,4 @@ new create(env: Env) =>
     p1.publish_message_b(b1)
     p2.publish_message_b(b1)
 
-    // consume messages? 
-
     env.out.print("**Main** Finished.")

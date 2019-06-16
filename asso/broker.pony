@@ -7,19 +7,22 @@ actor Broker
     let _publishers: collections.Map[USize, Publisher] = _publishers.create()
 
     let _consumer_queues: collections.MapIs[Consumer, Queue] = _consumer_queues.create()
-    
+
     new create(id: USize, out: OutStream) =>
         _id = id
         _out = out
-    
-    be can_produce(publisher: Publisher) =>
+
+    be can_produce(publisher: Publisher, message: Message) =>
+        let ventilator = Ventilator(message, _out)
+
         try
             let consumers = _subscriptions(publisher)?
 
             for consumer in consumers.values() do
                 _consumer_queues.insert_if_absent(consumer, Queue(_out))?
-                _consumer_queues(consumer)?.can_produce(publisher)
-                _consumer_queues(consumer)?.can_consume(consumer)
+                let queue = _consumer_queues(consumer)?
+                queue.can_produce(ventilator)
+                queue.can_consume(consumer)
             end
         else
             _out.print("There was an error in Broker.")

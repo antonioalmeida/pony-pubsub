@@ -1,4 +1,5 @@
-type GenericConsumer is (Consumer | Ventilator)
+type GenericConsumer is (Consumer)
+type GenericPublisher is (Publisher | Ventilator)
 
 actor Queue
     let _capacity: USize
@@ -23,8 +24,8 @@ actor Queue
             end
         end
 
-    be can_produce(publisher: Publisher) =>
-        if _messages.size()  < _capacity then
+    be can_produce(publisher: GenericPublisher) =>
+        if _messages.size() < _capacity then
             publisher.push_message(this)
         else 
             // add to waiting array?
