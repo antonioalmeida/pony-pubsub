@@ -7,7 +7,7 @@ actor Queue
 
     let _consume_requests: Array[GenericConsumer]
 
-    new create(capacity: USize, out: OutStream) =>
+    new create(out: OutStream, capacity: USize=50) =>
         _capacity = capacity
         _messages = Array[Message](_capacity)
         _out = out

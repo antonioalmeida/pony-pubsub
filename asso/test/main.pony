@@ -18,7 +18,7 @@ class iso _SinglePubSub is UnitTest
 
     fun apply(h: TestHelper) =>
         let pu = Publisher(1, "ola", h.env.out)
-        let queue = Queue(1, h.env.out)
+        let queue = Queue(h.env.out)
         let c = Consumer(1, h.env.out)
 
         pu.publish_message(queue)
@@ -29,7 +29,7 @@ class iso _Ventilator is UnitTest
 
     fun apply(h: TestHelper) =>
           let p1 = Publisher(1, "ola", h.env.out)
-          let queue = Queue(10, h.env.out)
+          let queue = Queue(h.env.out)
           let consumer1 = Consumer(1, h.env.out)
           let consumer2 = Consumer(2, h.env.out)
           let consumer3 = Consumer(3, h.env.out)
