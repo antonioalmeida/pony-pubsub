@@ -4,13 +4,10 @@ actor Queue
     var _messages: Array[Message]
     let _out: OutStream
 
-    let _consume_requests: Array[Consumer]
-
     new create(out: OutStream, capacity: USize=50) =>
         _capacity = capacity
         _messages = Array[Message](_capacity)
         _out = out
-        _consume_requests = Array[Consumer](_capacity)
 
     be push(message: Message) =>
         if _messages.size() < _capacity then
@@ -23,7 +20,7 @@ actor Queue
         let message = pop_sync()
 
         match message
-        | let m: None => _consume_requests.push(consumer)
+        | let m: None => _out.print("no message :(")
         | let m: Message => consumer.on_message(m)
         end
 

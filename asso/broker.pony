@@ -3,14 +3,15 @@ use collections = "collections"
 actor Broker
     let _id: USize
     let _out: OutStream
-    let _subscriptions: collections.MapIs[Publisher, Array[Consumer]] = _subscriptions.create()
-    let _publishers: collections.Map[USize, Publisher] = _publishers.create()
 
-    let _consumer_queues: collections.MapIs[Consumer, Queue] = _consumer_queues.create()
+    let _subscriptions: collections.MapIs[Publisher, Array[Consumer]] 
+    let _consumer_queues: collections.MapIs[Consumer, Queue] 
 
     new create(id: USize, out: OutStream) =>
         _id = id
         _out = out
+        _subscriptions = _subscriptions.create()
+        _consumer_queues = _consumer_queues.create()
 
     be can_produce(publisher: Publisher, message: Message) =>
         try
