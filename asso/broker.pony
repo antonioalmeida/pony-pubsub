@@ -13,8 +13,6 @@ actor Broker
         _out = out
 
     be can_produce(publisher: Publisher, message: Message) =>
-        let ventilator = Ventilator(message, _out)
-
         try
             let consumers = _subscriptions(publisher)?
 
@@ -22,7 +20,7 @@ actor Broker
                 _consumer_queues.insert_if_absent(consumer, Queue(_out))?
                 let queue = _consumer_queues(consumer)?
                 queue.push(message)
-                queue.can_consume(consumer)
+                queue.pop(consumer)
             end
         else
             _out.print("There was an error in Broker.")
