@@ -10,9 +10,7 @@ actor Publisher
         _message = message
         _out = out
 
-    be publish_message_b(broker: Broker) =>
+    be publish_message(broker: Broker) =>
         broker.can_produce(this, _message)
         _out.print("p" + _id.string() +  ": publishing message " + _message.string())
 
-    be push_message(queue: Queue) =>
-        queue.push(_message)

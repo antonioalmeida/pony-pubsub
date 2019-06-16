@@ -9,5 +9,5 @@ class PublisherGen is TimerNotify
         _broker = broker
 
     fun ref apply(timer: Timer, count: U64): Bool =>
-        _publisher.publish_message_b(_broker)
+        _publisher.publish_message(_broker)
         true
