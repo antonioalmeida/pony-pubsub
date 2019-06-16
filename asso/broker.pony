@@ -2,22 +2,23 @@ use collections = "collections"
 
 actor Broker
     let _id: USize
-    let _queue : Queue
     let _out: OutStream
     let _subscriptions: collections.Map[USize, Array[Consumer]] = _subscriptions.create()
     let _publishers: collections.Map[USize, Publisher] = _publishers.create()
+    let _queues: collections.Map[USize, Queue] = _queues.create()
     
 
     new create(id: USize, queue: Queue, out: OutStream) =>
         _id = id
-        _queue = queue
         _out = out
 
     
     be can_produce(publisher: Publisher) =>
-        // logic here to only serve those that need (queue for each publisher?)
-        _queue.can_produce(publisher)
-
+        _queues.insert_if_absent(publisher.get_id(), Queue(10, _out))
+        match _queues.get_or_else(publisher.get_id(), None)
+        | let q: None => _out.print("There was an error in Broker.")
+        | let q: Queue => q.can_produce(publisher)
+        end
 
     /*
     be add_subscriber(consumer: Consumer) =>
