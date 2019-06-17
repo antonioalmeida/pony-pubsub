@@ -11,7 +11,6 @@ actor Consumer
     Array to hold the Consumer's received messages.
     """
     let _messages: Array[Message]
-
     """
     Maximum ammount of messages the consumer can hold.
     """
