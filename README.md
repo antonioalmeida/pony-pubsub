@@ -1,42 +1,12 @@
-## feup-asso
+# Scenario 3
 
-----
+![scenario-3](assets/scenario-3.png)
 
-### Instructions
+## "Changelog"
 
-#### Setup
-Install pony compiler `ponyc`
+### v1.0
 
-#### Compile
-```shell
-# compile the package
-$ make build/asso 
-
-# compile tests
-$ make build/test 
-```
-
-#### Run
-
-__Note:__ both these commands will compile the source if they're not built.
-```shell
-
-# run the package's Main
-$ make run
-
-# run tests
-$ make test
-```
-
-----
-
-## A sort of Changelog
-
-### v0.1.0.0
-
-Started Scenario 3
-
-![scenario-3](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-3.png)
+Started Scenario 3.
 
 * Unbounded queue and publishes asap;
 * *Ventilator* (or Subscription Manager) knows about the subscribers:
