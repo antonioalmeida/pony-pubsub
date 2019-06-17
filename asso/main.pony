@@ -22,17 +22,9 @@ new create(env: Env) =>
     timers(consume timer_p1)
     timers(consume timer_p2)
 
-
     b1.add_subscription(consumer1, p1)
     b1.add_subscription(consumer2, p1)
-    //b1.add_subscription(consumer3, p1)
     b1.add_subscription(consumer1, p2)
-    //b1.add_subscription(consumer2, p2)
     b1.add_subscription(consumer4, p2)
-
-    /*
-    p1.publish_message_b(b1)
-    p2.publish_message_b(b1)
-    */
 
     env.out.print("**Main** Finished.")
