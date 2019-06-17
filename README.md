@@ -72,7 +72,7 @@ Implementation of different Publish-Subscribe scenarios (explicited below) in [P
 ## Development 
 
 ### Setup
-Install pony compiler `ponyc`
+Install pony compiler [`ponyc`](https://github.com/ponylang/ponyc)
 
 ### Compile
 ```shell
