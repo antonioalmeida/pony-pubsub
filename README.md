@@ -1,41 +1,12 @@
-## feup-asso
+# Scenario 2
 
-----
+![scenario-2](assets/scenario-2.png)
 
-### Instructions
+## "Changelog"
 
-#### Setup
-Install pony compiler `ponyc`
+### v1.0
 
-#### Compile
-```shell
-# compile the package
-$ make build/asso 
-
-# compile tests
-$ make build/test 
-```
-
-#### Run
-
-__Note:__ both these commands will compile the source if they're not built.
-```shell
-
-# run the package's Main
-$ make run
-
-# run tests
-$ make test
-```
-
-----
-
-## A sort of Changelog
-
-### v0.0.1.0
-
-First attempt at Scenario 2
-![scenario-2](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-2.png)
+First attempt at scenario 1.
 
 #### Checklist
 
@@ -54,9 +25,9 @@ First attempt at Scenario 2
 * Potentially *loses* messages if they are consumed asap (?). *Not sure if this is true*
 * Potentially *duplicates* messages if they are consumed only after subscriber finishes work (?). *Not sure if this is true*
 
-### v0.0.2.0
+### v2.0
 
-Improvements on Scenario 2
+Improvements on Scenario 2.
 
 #### Improvements:
 * Make better use of the typing system, namely [Type Aliases](https://tutorial.ponylang.io/types/type-aliases.html), to encapsulate and improve semantics on messages;
