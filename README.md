@@ -4,7 +4,7 @@ After implementing Scenario 4, the extra experience with the language and its nu
 * "Are we taking full advantage of the language's purpose/capabilities?";
 * "Do we really need an explicit notion of queue?";
     
-![scenario-5](https://user-images.githubusercontent.com/4543448/59571740-c2911a80-909f-11e9-86d1-c25cddf4aae9.png)
+![scenario-5](assets/scenario-5.png)
     
 This lead to the design of **Scenario 5**, with the following main goals:
 * Remove the notion of queue altogether;
