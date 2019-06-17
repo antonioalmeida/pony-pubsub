@@ -67,6 +67,8 @@ Implementation of different Publish-Subscribe scenarios (explicited below) in [P
 * Remove the notion of queue altogether;
 * Instead, make use of Pony's messaging system, namely through Actor behaviours;
 
+----
+
 ## Development 
 
 ### Setup
