@@ -1,21 +1,29 @@
-actor Publisher
-    let _id: USize
-    let _message : Message
-    var _count : U32 = 0
+use collections = "collections"
+
+actor Publisher  
+    """
+    Actor that represents a Publisher on a Publish-Subscribe
+    pattern.
+    """
+
+    let _id: USize 
     let _out: OutStream
+
+    """
+    The message the Publisher intends to propagate.
+    """
+    let _message : Message
 
     new create(id: USize, message: Message, out: OutStream) =>
         _id = id
         _message = message
         _out = out
 
-    be publish_message(queue: Queue) =>
-        queue.can_produce(this)
+    """
+    Behaviour to trigger message publishing, on a given Broker.
+    Also prints the message's content to screen.
+    """
+    be publish_message(broker: Broker) =>
+        broker.on_message(this, _message)
+        _out.print("> p" + _id.string() +  ": published '" + _message.string() + "'")
 
-    be publish_message_v(ventilator: Ventilator) =>
-        ventilator.can_produce(this)
-
-    be push_message(queue: Queue) =>
-        _count = _count + 1
-        queue.push(_message)
-        _out.print("p" + _id.string() +  ": published message " + _message.string())
