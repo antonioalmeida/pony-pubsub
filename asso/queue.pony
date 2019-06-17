@@ -1,7 +1,19 @@
 actor Queue
-    let _capacity: USize
-    var _messages: Array[Message]
+    """
+    Actor that represents a FIFO bounded queue that holds 
+    instances of Message.
+    """
+
     let _out: OutStream
+
+    """
+    Maximum ammount of messages the queue can hold.
+    """
+    let _capacity: USize
+    """
+    Array to hold the Consumer's received messages.
+    """
+    var _messages: Array[Message]
 
     let _consume_requests: Array[Consumer]
 
@@ -11,6 +23,10 @@ actor Queue
         _out = out
         _consume_requests = Array[Consumer](_capacity)
 
+    """
+    Behavior to trigger local push of a given message
+    to the messages array, after capacity verification.
+    """
     be push(message: Message) =>
         push_sync(message)
         try
@@ -37,9 +53,17 @@ actor Queue
         | let m: Message => consumer.on_message(m)
         end
 
+    """
+    Function to push a given message to the messages
+    array.
+    """
     fun ref push_sync(message: Message) =>
         _messages.push(message)
 
+    """
+    Function to pull and return the top message from 
+    the messages array.
+    """
     fun ref pull_sync(): (Message | None) =>
         var message: (Message | None) = None
         try
