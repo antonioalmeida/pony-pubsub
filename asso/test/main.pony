@@ -199,7 +199,7 @@ class iso _VentilatorNormalOrderTestSinglePublisherMultipleConsumers is UnitTest
       let v = Ventilator(1, queue, h.env.out)
 
       c1.subscribe_ventilator(v)
-      c1.subscribe_ventilator(v)
+      c2.subscribe_ventilator(v)
 
       p.publish_message(queue)
       p.publish_message(queue)
@@ -225,7 +225,7 @@ class iso _VentilatorInterleavedTestSinglePublisherMultipleConsumers is UnitTest
       let v = Ventilator(1, queue, h.env.out)
 
       c1.subscribe_ventilator(v)
-      c1.subscribe_ventilator(v)
+      c2.subscribe_ventilator(v)
 
       p.publish_message(queue)
       v.consume_message()
@@ -254,7 +254,7 @@ class iso _VentilatorInverseOrderTestSinglePublisherMultipleConsumers is UnitTes
       let v = Ventilator(1, queue, h.env.out)
 
       c1.subscribe_ventilator(v)
-      c1.subscribe_ventilator(v)
+      c2.subscribe_ventilator(v)
 
       v.consume_message()
       v.consume_message()
@@ -284,7 +284,7 @@ class iso _VentilatorNormalOrderTestMultiplePublishersMultipleConsumers is UnitT
       let v = Ventilator(1, queue, h.env.out)
 
       c1.subscribe_ventilator(v)
-      c1.subscribe_ventilator(v)
+      c2.subscribe_ventilator(v)
 
       p2.publish_message(queue)
       p2.publish_message(queue)
@@ -311,7 +311,7 @@ class iso _VentilatorInterleavedTestMultiplePublishersMultipleConsumers is UnitT
       let v = Ventilator(1, queue, h.env.out)
 
       c1.subscribe_ventilator(v)
-      c1.subscribe_ventilator(v)
+      c2.subscribe_ventilator(v)
 
       p2.publish_message(queue)
       v.consume_message()
@@ -341,7 +341,7 @@ class iso _VentilatorInverseOrderTestMultiplePublishersMultipleConsumers is Unit
       let v = Ventilator(1, queue, h.env.out)
 
       c1.subscribe_ventilator(v)
-      c1.subscribe_ventilator(v)
+      c2.subscribe_ventilator(v)
 
       v.consume_message()
       v.consume_message()
