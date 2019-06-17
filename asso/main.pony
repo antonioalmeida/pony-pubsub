@@ -14,20 +14,5 @@ new create(env: Env) =>
 
     timers(consume timer_p1)
     timers(consume timer_c1)
-    /*
-    p1.publish_message(queue)
-    p1.publish_message(queue)
-
-    p2.publish_message(queue)
-    p2.publish_message(queue)
-    
-    p1.publish_message(queue)
-    */
-
-    /*
-    consumer.consume_message(queue)
-    consumer.consume_message(queue)
-    consumer.consume_message(queue)
-    */
     
     env.out.print("**Main** Finished.")
