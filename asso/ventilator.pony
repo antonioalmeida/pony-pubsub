@@ -1,7 +1,15 @@
 actor Ventilator
+    """
+    Actor that manages Consumer's subscriptions.
+    """
+
     let _id: USize
-    let _queue : Queue
     let _out: OutStream
+    let _queue : Queue
+
+    """
+    Array to hold the subscribers.
+    """
     let _subscribers: Array[Consumer]
 
     new create(id: USize, queue: Queue, out: OutStream) =>
