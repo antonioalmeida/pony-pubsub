@@ -18,7 +18,7 @@ Under the hood, Pony implements an Actor's mailbox through an unbounded FIFO que
 ## Results
  * An explicit implementation of a queue no longer exists, yet paralellism/non-eagerness remains;
  * Instead, use of Pony's messaging system on our behalf, namely through Actor behaviours;
- * Behavior calls between Actors, i.e., messages, became simpler to handle, making explicit queues needless;
+ * Behavior calls between Actors, i.e., messages, became simpler and fewer;
  * Code base became smaller, while keeping the same functionality/interface;
 
 ## "Changelog"
