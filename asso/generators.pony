@@ -1,6 +1,10 @@
 use "time"
 
 class PublisherGen is TimerNotify
+    """
+    Class that is notified by the system and executes the apply method.
+    """
+
     let _publisher: Publisher
     let _broker: Broker
     
