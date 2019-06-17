@@ -62,35 +62,10 @@ Implementation of different Publish-Subscribe scenarios (explicited below) in [P
 
 ### [Scenario 5](https://github.com/antonioalmeida/feup-asso/tree/scenario5)
 
-![scenario-5](https://user-images.githubusercontent.com/4543448/59571740-c2911a80-909f-11e9-86d1-c25cddf4aae9.png)
+![scenario-5](https://github.com/antonioalmeida/feup-asso/tree/scenario5)
     
 * Remove the notion of queue altogether;
 * Instead, make use of Pony's messaging system, namely through Actor behaviours;
-
-## Design Patterns to Consider
-
-| Design Pattern  | Link                                                   |
-|-----------------|--------------------------------------------------------|
-| Singleton       |  https://sourcemaking.com/design_patterns/singleton    |
-| Builder         |  https://sourcemaking.com/design_patterns/builder      |
-| Composite       |  https://sourcemaking.com/design_patterns/composite    |
-| Flyweight       |  https://sourcemaking.com/design_patterns/flyweight    |
-| Command         |  https://sourcemaking.com/design_patterns/command      |
-| Iterator        |  https://sourcemaking.com/design_patterns/iterator     |
-| Null Object     |  https://sourcemaking.com/design_patterns/null_object  |
-| Visitor         |  https://sourcemaking.com/design_patterns/visitor      |
-| ...             |  more to come                                          |
-
-
-### Notes on the Design Patterns
-
-**[Observer](https://en.wikipedia.org/wiki/Actor_model)**: ```For example, an Actor might need to send a message to a recipient Actor from which it later expects to receive a response, but the response will actually be handled by a third Actor component that has been configured to receive and handle the response (for example, a different Actor implementing the Observer pattern). The original Actor could accomplish this by sending a communication that includes the message it wishes to send, along with the address of the third Actor that will handle the response. This third Actor that will handle the response is called the resumption (sometimes also called a continuation or stack frame). When the recipient Actor is ready to send a response, it sends the response message to the resumption Actor address that was included in the original communication.```
-
-**[Option Pattern](https://www.codeproject.com/Articles/17607/The-Option-Pattern)**: ![option_pattern](assets/option_pattern.PNG "Pony Option Pattern")
-
-
-### Notes on Pony
-![capabilities](assets/capabilities_pony.PNG "Pony Capabilities Table")
 
 ## Development 
 
