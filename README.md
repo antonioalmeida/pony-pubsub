@@ -2,7 +2,7 @@
 
 "This is getting serious!"
 
-![scenario-4](https://user-images.githubusercontent.com/4543448/59571658-ef90fd80-909e-11e9-951e-4e4ec7fcd76d.png)
+![scenario-4](assets/scenario-4.png)
 
 The mains goals of the Scenario 4 were:
 
@@ -27,7 +27,7 @@ The mains goals of the Scenario 4 were:
 
 ## "Changelog"
 
-### v0.3.0
+### v0.3
 
  * Started Scenario 4, based on Scenario 3.
  * Attempted both topic and key based identification mechanisms. Went with keys.
@@ -36,13 +36,13 @@ The mains goals of the Scenario 4 were:
     * [MapIs] collection saved the day;
  * Consumers are now notified of when a new message is ready to be consumed.
  
- ### v0.4.0
+ ### v0.4
  
  * Implemented 1 to many subscription mechanism
    * Publisher publishes once for each subscriber - not good.
  * Cleanup non-compatible/obsolete code from previous scenarios
  
- ### v.1.0.0
+ ### v1.0
  
  * Fixed Publisher separation of concerns code smell through refactor on the message exchange flow
  * Added documentation
