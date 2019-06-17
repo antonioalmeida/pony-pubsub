@@ -11,7 +11,7 @@ Implementation of different Publish-Subscribe scenarios (explicited below) in [P
 
 ### [Scenario 1](https://github.com/antonioalmeida/feup-asso/tree/scenario1)
 
-![](assets/scenario-1.png)
+![scenario-1](assets/scenario-1.png)
 
 * Unbounded queue;
 * Publisher sends messages a.s.a.p.;
@@ -22,7 +22,7 @@ Implementation of different Publish-Subscribe scenarios (explicited below) in [P
 
 ### [Scenario 2](https://github.com/antonioalmeida/feup-asso/tree/scenario2)
 
-![](assets/scenario-2.png)
+![scenario-2](assets/scenario-2.png)
 
 * Unbounded queue and publishes asap (again);
 * Multiple subscribers:
@@ -34,7 +34,7 @@ Implementation of different Publish-Subscribe scenarios (explicited below) in [P
 
 ### [Scenario 3](https://github.com/antonioalmeida/feup-asso/tree/scenario3)
 
-![](assets/scenario-3.png)
+![scenario-3](assets/scenario-3.png)
 
 * Unbounded queue and publishes asap (again);
 * *Ventilator* (or Subscription Manager) knows about the subscribers:
@@ -45,7 +45,7 @@ Implementation of different Publish-Subscribe scenarios (explicited below) in [P
 
 ### [Scenario 4](https://github.com/antonioalmeida/feup-asso/tree/scenario4)
 
-![](assets/scenario-4.png)
+![scenario-4](assets/scenario-4.png)
 
 * Multiple publishers, multiple subscribers;
 * Both have specialized queues:
@@ -62,7 +62,7 @@ Implementation of different Publish-Subscribe scenarios (explicited below) in [P
 
 ### [Scenario 5](https://github.com/antonioalmeida/feup-asso/tree/scenario5)
 
-![scenario-5](https://github.com/antonioalmeida/feup-asso/tree/scenario5)
+![scenario-5](assets/scenario-5.png)
     
 * Remove the notion of queue altogether;
 * Instead, make use of Pony's messaging system, namely through Actor behaviours;
