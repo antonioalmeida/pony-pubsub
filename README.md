@@ -1,11 +1,13 @@
 # pony-pubsub
 
-Implementation of different Publish-Subscribe scenarios (explicited below) in [Pony](https://www.ponylang.io/). The main goals of this project were:
+Implementation of different Publish-Subscribe scenarios (explicited below) in [Pony](https://www.ponylang.io/). 
 
-* Infer patters on how to design PubSub systems on an Actor Model language;
+The main goals of this project were:
+
+* Infer patterns on how to design Publish/Subscribe systems on an Actor Model language;
 * Assess how differently (if at all) traditional OOP design patterns still apply on Pony's paradigm;
-* Evaluate Pony's core features (*capabilities-secure, actor-model*) help/hinger on solving the PubSub problem;
-* Evaluate Pony's as a production-level prgramming language, from various perspectives, e.g., learning curve, community, documentation, stability, etc;
+* Evaluate Pony's core features (*capabilities-secure, actor-model*) help/hinger on solving the Publish/Subscribe problem;
+* Evaluate Pony as a production-level programming language, from various perspectives, e.g., learning curve, community, documentation, stability, etc;
 
 ## Scenarios Implemented
 
