@@ -31,5 +31,5 @@ Under the hood, Pony implements an Actor's mailbox through an unbounded FIFO que
 
 ## v1.1.0.1
 
- * Simplify interactions Actors (Publishers, Consumers, Broker);
+ * Simplify interactions between Actors (Publishers, Consumers, Broker);
  * Add some documentation.
