@@ -108,3 +108,12 @@ Started Scenario 4 from Scenario 3
     - [x] *Explicit* subscription;
     - [x] Identification mechanism is needed (keys, ~~topics, ...~~);
     - [x] Study the [Registry](https://martinfowler.com/eaaCatalog/registry.html) ~~and (if you are feeling adventurous) the [Service Locator](https://en.wikipedia.org/wiki/Service_locator_pattern)~~ patterns.
+    
+### v1.1.0.0
+
+Started Scenario 5 from Scenario 4
+
+[!scenario-5](https://user-images.githubusercontent.com/4543448/59571740-c2911a80-909f-11e9-86d1-c25cddf4aae9.png)
+
+ - [x] Remove the notion of queue altogether
+ - [x] Instead, make use of Pony's messaging system, namely through Actor behaviours
