@@ -8,6 +8,6 @@
 
 First attempt at Scenario 1, creating an Actor queue.
 
-#### v1.2
+### v1.2
 
 The file _generators.pony_ clearly needs refactoring but for now the production/consumption of messages is automated using [Timers](https://stdlib.ponylang.io/time-Timer/)
