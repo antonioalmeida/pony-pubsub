@@ -11,7 +11,7 @@ actor Broker
         _out = out
         _subscriptions = _subscriptions.create()
 
-    be can_produce(publisher: Publisher, message: Message) =>
+    be on_message(publisher: Publisher, message: Message) =>
         try
             let consumers = _subscriptions(publisher)?
 

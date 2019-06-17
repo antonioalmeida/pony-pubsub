@@ -12,5 +12,5 @@ actor Consumer
 
     be on_message(message: Message) =>
         _messages.push(message)
-        _out.print("> c" + _id.string() +  ": consumed message " + message.string())
+        _out.print("    > c" + _id.string() +  ": consumed '" + message.string() + "'")
 
