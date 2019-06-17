@@ -113,7 +113,7 @@ Started Scenario 4 from Scenario 3
 
 Started Scenario 5 from Scenario 4
 
-[!scenario-5](https://user-images.githubusercontent.com/4543448/59571740-c2911a80-909f-11e9-86d1-c25cddf4aae9.png)
+![scenario-5](https://user-images.githubusercontent.com/4543448/59571740-c2911a80-909f-11e9-86d1-c25cddf4aae9.png)
 
  - [x] Remove the notion of queue altogether
  - [x] Instead, make use of Pony's messaging system, namely through Actor behaviours
