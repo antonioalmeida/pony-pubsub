@@ -1,6 +1,11 @@
-# Publish-Subscriber scenarios using an Actor-Model programming language
+# pony-pubsub
 
-We implemented different scenarios (explicited below) using **Pony**. From Pony's [website](https://www.ponylang.io/): *"Pony is an open-source, object-oriented, actor-model, capabilities-secure, high-performance programming language."*
+Implementation of different Publish-Subscribe scenarios (explicited below) in [Pony](https://www.ponylang.io/). The main goals of this project were:
+
+* Infer patters on how to design PubSub systems on an Actor Model language;
+* Assess how differently (if at all) traditional OOP design patterns still apply on Pony's paradigm;
+* Evaluate Pony's core features (*capabilities-secure, actor-model*) help/hinger on solving the PubSub problem;
+* Evaluate Pony's as a production-level prgramming language, from various perspectives, e.g., learning curve, community, documentation, stability, etc;
 
 ## Scenarios Implemented
 
@@ -35,13 +40,7 @@ We implemented different scenarios (explicited below) using **Pony**. From Pony'
 * *Ventilator* (or Subscription Manager) knows about the subscribers:
     * [Observer](https://en.wikipedia.org/wiki/Observer_pattern) used to push to subscribers (*Explicit* subscription);
     * Different specializations of *ventilators* ([Fanout](https://en.wikipedia.org/wiki/Fan-out_(software)), Round-robin...).
-
-#### With steroids:
-
-* Understands receipt notification (**ACK**) from subscribers;
-* May use [Heart Beat](https://en.wikipedia.org/wiki/Heartbeat_(computing)), [Timeout](https://en.wikipedia.org/wiki/Timeout_(computing)) and [Circuit breaker](https://martinfowler.com/bliki/CircuitBreaker.html) patterns to deal with delivery failures;
-* Manages message meta-information, such as marking them as *tentatively consumed*, until it has such guarantees (e.g., to avoids losing messages).
-
+    
 ----
 
 ### [Scenario 4](https://github.com/antonioalmeida/feup-asso/tree/scenario4)
@@ -61,6 +60,12 @@ We implemented different scenarios (explicited below) using **Pony**. From Pony'
 
 ----
 
+### [Scenario 5](https://github.com/antonioalmeida/feup-asso/tree/scenario5)
+
+![scenario-5](https://user-images.githubusercontent.com/4543448/59571740-c2911a80-909f-11e9-86d1-c25cddf4aae9.png)
+    
+* Remove the notion of queue altogether;
+* Instead, make use of Pony's messaging system, namely through Actor behaviours;
 
 ## Design Patterns to Consider
 
@@ -112,75 +117,3 @@ $ make run
 # run tests
 $ make test
 ```
-
-## Iterations 
-
-### v0.0.1
-
-First attempt at Scenario 1 
-![scenario-1](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-1.png)
-
-##### Pros
-- "Everything" is asynchronous - no blocking calls
-- Making use of the Actor Models and its messaging system on our advantage - through Pony's behaviours
-
-#### Cons
-- EVERYTHING is asynchronous - the change in mindset still hasn't kicked in, and the code reflects that
-- Message ordering when publishing and consuming is not guaranteed - need to change the push/pull pattern and possibly look into [reference capabilities](https://tutorial.ponylang.io/reference-capabilities.html)
-
-### v0.0.2
-
-First attempt at Scenario 2
-![scenario-2](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-2.png)
-
-#### Checklist
-
-- [x] ~~Unbounded queue~~. Queue has a predefined capacity defined on its constructor. 
-- [x] Publishes asap (again). Pro: from the publisher's POV, the publish mechanism is asynchronous
-- [x] Multiple subscribers:
-    - [x] They pull messages concurrently;
-    - [x] Each gets a different message;
-- [x] *Implicit* subscription (fetch from data structure).
-
-#### Potential problems:
-
-* Possible out-of-memory in queue (again);
-* Eager producer (again);
-* No guarantees on ~~delivery-order, or~~ load-balancing;
-* Potentially *loses* messages if they are consumed asap (?). *Not sure if this is true*
-* Potentially *duplicates* messages if they are consumed only after subscriber finishes work (?). *Not sure if this is true*
-
-### v0.0.3
-
-Improvements on Scenario 2.
-
-#### Improvements:
-* Make better use of the typing system, namely [Type Aliases](https://tutorial.ponylang.io/types/type-aliases.html), to encapsulate and improve semantics on messages;
-* Not having a `null` value was weird, we now handle that better. [This](https://patterns.ponylang.io/creation/supply-chain.html) helped
-* CI through [CircleCI](https://circleci.com/) with containerized build ~~and test~~ jobs
-
-
-
-### v0.0.4 (WIP)
-
-Started Scenario 3.
-
-### Checklist (part of)
-
-- [x] Explicit subscription
-- [ ] Implement multiple subscription methods (_Strategy_ pattern)
-- [ ] Have the ventilator be notified by the queue, instead of having to call an explicit `consume` behaviour
-
-### Current problems:
-* Consumers ~~not consuming~~ (FIXED)?
-* Delivery logic by the ventilator not correct (each message in queue should be distributed to all subscribers)
-
-### Notes
-* Common interface between direct consumers (scenario2) and ventilator. Is this something we want to keep?
-
-![scenario-3](https://github.com/hugoferreira/asso-pipes-and-stuff-v19/raw/master/assets/scenario-3.png)
-
-* Unbounded queue and publishes asap;
-* *Ventilator* (or Subscription Manager) knows about the subscribers:
-    * [Observer](https://en.wikipedia.org/wiki/Observer_pattern) used to push to subscribers (*Explicit* subscription);
-    * Different specializations of *ventilators* ([Fanout](https://en.wikipedia.org/wiki/Fan-out_(software)), Round-robin...).
