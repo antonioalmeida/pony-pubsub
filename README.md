@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/antonioalmeida/feup-asso.svg?style=svg)](https://circleci.com/gh/antonioalmeida/feup-asso)
 
-Implementation of different Publish-Subscribe scenarios (explicited below) in [Pony](https://www.ponylang.io/). 
+Implementation of progressive Publish-Subscribe scenarios in [Pony](https://ponylang.io), as a means to document an adaptation to the Actor Model paradigm and the problems it may solve.
 
 ##### Objectives
 The main goals of this project were:
@@ -11,18 +11,6 @@ The main goals of this project were:
 * Assess how differently (if at all) traditional OOP design patterns still apply on Pony's paradigm;
 * Evaluate Pony's core features (*capabilities-secure, actor-model*) help/hinger on solving the Publish/Subscribe problem;
 * Evaluate Pony as a production-level programming language, from various perspectives, e.g., learning curve, community, documentation, stability, etc;
-
-
-##### Conclusions
-
-Implementing a Publish/Subscribe system on an Actor Model language proved to be very similar to other paradigms. The major difference in patterns was the lack of need of an explicit queue since Pony's actor model paradigm implicitly creates these queues to allow the use of behaviours (asynchronous methods).  
-
-Pony also handles the threads for its Actors, meaning you don't have to deal with its creation, destruction or even data-races and deadlocks. This is an advantage from a language such as C++, where you'd have to build a multithreaded program from scratch to enable this asynchronous behaviour. It's also an advantage in relation to single-threaded asynchronous event-loop-based programming languages, such as the Node.js environment, both in terms of performance and parallelism abstractions.
-
-In addition, Pony is not only a typed language, which enables more maintainable code, but also type-safe (and, therefore, memory-safe). Pony also guarantees exception safety, meaning if the program compiles it will run with no unexpected exceptions. All of these capabilities helped to develop safer and cleaner code.
-
-Pony is still a relatively new language and therefore it was expected to encounter some problems with stability, documentation and community. However, we found no stability issues or unexpected behaviour. The documentation is well written and fairly easy to search. Community wise, it lacks support from questions websites like [StackOverflow](https://stackoverflow.com/) (with only 56 watchers and 25 questions for the language tag, comparing to 10.3k/12.4k from Rust). However, Pony does have good support on [Zulip](https://ponylang.zulipchat.com/), where you can also ask questions and contribute to the community. Pony is also [open-source](https://github.com/ponylang/ponyc), allowing the community to point out issues and fix/implement functionality. From a learning perspective, Pony introduces a clean syntax, easy library usage and simple compilation/linking instructions. However, some of its peculiarities, such as its [Reference Capabilities](https://tutorial.ponylang.io/reference-capabilities/reference-capabilities.html) can make up a steep learning curve.  
-
 
 ## Scenarios Implemented
 
@@ -85,6 +73,32 @@ Pony is still a relatively new language and therefore it was expected to encount
 * Instead, make use of Pony's messaging system, namely through Actor behaviours;
 
 ----
+
+
+### Some Remarks
+
+#### Structure
+
+The end product of a Publish/Subscribe system on an Actor Model language proved to be somewhat similar to traditional OOP implementations. However, we find that to be misleading, as it doesn't reflect the learning curve associated with the language's features, i.e., [reference capabilities](https://www.ponylang.io/learn/#reference-capabilities). 
+
+#### Data Structures 
+The major difference in terms of data structures was the lack of need of an explicit queue since Pony's implementation of the Actor Model's [mailboxes](https://en.wikipedia.org/wiki/Actor_model#Fundamental_concepts) abstracts them through _behaviors_ (similar to class methods, but asynchronous). 
+
+#### Parallelism
+
+Pony handles the threads for its Actors, meaning you don't have to deal with its creation, destruction or even data-races and deadlocks. Additionally, the code is inherently asynchronous, if you follow the language's functionalities as intended. This is an advantage when comparing to languages such as C++, where the parallelism is explicit, namely through dedicated parallel operations, suchs as _fork_ calls.
+
+Naturally, multi-threading is an advantage against single-threaded asynchronous event-loop-based programming languages, such as the Node.js environment, both in terms of performance and parallelism abstractions.
+
+#### Development Experience
+
+Pony is still a relatively new language and therefore it was expected to encounter some problems with stability, documentation and community. However, we found no stability issues or unexpected behaviour. The documentation is well written and fairly easy to search. Community wise, it lacks support from questions websites like [StackOverflow](https://stackoverflow.com/) (with only 56 watchers and 25 questions for the language tag, comparing to 10.3k/12.4k from Rust). 
+
+However, Pony does have good support on [Zulip](https://ponylang.zulipchat.com/), where you can also ask questions and contribute to the community. Pony is also [open-source](https://github.com/ponylang/ponyc), allowing the community to point out issues and fix/implement functionality. From a learning perspective, Pony introduces a clean syntax, easy library usage and simple compilation/linking instructions. However, some of its peculiarities, such as its [Reference Capabilities](https://tutorial.ponylang.io/reference-capabilities/reference-capabilities.html) can make up a steep learning curve.  
+
+#### Miscellaneous
+
+Pony is not only a typed language, which enables more maintainable code, but also type-safe (and, therefore, memory-safe). It also guarantees exception safety, meaning if the program compiles it will run with no unexpected exceptions. All of these capabilities helped to develop safer and cleaner code.
 
 ## Development 
 
