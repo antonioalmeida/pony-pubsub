@@ -4,7 +4,8 @@
 
 Implementation of progressive Publish-Subscribe scenarios in [Pony](https://ponylang.io), as a means to document an adaptation to the Actor Model paradigm and the problems it may solve.
 
-##### Objectives
+### Objectives
+
 The main goals of this project were:
 
 * Infer patterns on how to design Publish/Subscribe systems on an Actor Model language;
