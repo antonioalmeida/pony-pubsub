@@ -1,5 +1,7 @@
 # pony-pubsub
 
+[![CircleCI](https://circleci.com/gh/antonioalmeida/feup-asso.svg?style=svg)](https://circleci.com/gh/antonioalmeida/feup-asso)
+
 Implementation of different Publish-Subscribe scenarios (explicited below) in [Pony](https://www.ponylang.io/). 
 
 ##### Objectives
@@ -15,7 +17,7 @@ The main goals of this project were:
 
 Implementing a Publish/Subscribe system on an Actor Model language proved to be very similar to other paradigms. The major difference in patterns was the lack of need of an explicit queue since Pony's actor model paradigm implicitly creates these queues to allow the use of behaviours (asynchronous methods).  
 
-Pony also handles the threads for its Actors, meaning you don't have to deal with its creation, destruction or even data-races and deadlocks. This is an advantage from a language such as C++, where you'd have to build a multithreaded program from scratch to enable this asynchronous behaviour. It's also an advantage in relation to single-threaded asynchronous event-loop-based programming languages such as Javascript in terms of performance and without the hassle of implementing semaphores.
+Pony also handles the threads for its Actors, meaning you don't have to deal with its creation, destruction or even data-races and deadlocks. This is an advantage from a language such as C++, where you'd have to build a multithreaded program from scratch to enable this asynchronous behaviour. It's also an advantage in relation to single-threaded asynchronous event-loop-based programming languages, such as the Node.js environment, both in terms of performance and parallelism abstractions.
 
 In addition, Pony is not only a typed language, which enables more maintainable code, but also type-safe (and, therefore, memory-safe). Pony also guarantees exception safety, meaning if the program compiles it will run with no unexpected exceptions. All of these capabilities helped to develop safer and cleaner code.
 
