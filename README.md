@@ -1,6 +1,6 @@
 # pony-pubsub
 
-[![CircleCI](https://circleci.com/gh/antonioalmeida/feup-asso.svg?style=svg)](https://circleci.com/gh/antonioalmeida/feup-asso)
+[![CircleCI](https://circleci.com/gh/antonioalmeida/pony-pubsub.svg?style=svg)](https://circleci.com/gh/antonioalmeida/pony-pubsub)
 
 Implementation of progressive Publish-Subscribe scenarios in [Pony](https://ponylang.io), as a means to document an adaptation to the Actor Model paradigm and the problems it may solve.
 
