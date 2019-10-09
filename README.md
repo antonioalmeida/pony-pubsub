@@ -117,12 +117,12 @@ $ make build/test
 
 ### Run
 
-__Note:__ both these commands will compile the source if they're not built.
+__Note:__ both these commands will build the source code to a specific directory.
 ```shell
 
-# run the package's Main
+# run the package's Main, build to /asso
 $ make run
 
-# run tests
+# run tests, build to /test
 $ make test
 ```
